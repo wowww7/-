@@ -1,0 +1,33 @@
+int numSnow = 100;
+Snow[] snow;
+int numLanterns = 50;
+Lantern[] lanterns;
+
+void setup() {
+  size(800, 900);
+  background(0);
+  
+  snow = new Snow[numSnow];
+  for (int i = 0; i < numSnow; i++) {
+    snow[i] = new Snow();
+  }
+
+  lanterns = new Lantern[numLanterns];
+  for (int i = 0; i < numLanterns; i++) {
+    lanterns[i] = new Lantern(random(width), height, random(2, 5));
+  }
+}
+
+void draw() {
+  background(0);
+  
+  for (int i = 0; i < numSnow; i++) {
+    snow[i].fall();
+    snow[i].display();
+  }
+
+  for (int j = 0; j < numLanterns; j++) {
+    lanterns [j].rise();
+    lanterns[j].display();
+  }
+}
